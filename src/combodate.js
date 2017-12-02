@@ -160,6 +160,13 @@
             } else if(this.options.firstItem === 'empty') {
                 values.push(['', '']);
             }
+            else if (typeof this.options.firstItem === 'object') {
+                //this.options.firstItem: {h: 'select hour',m: 'select minute'}
+                var header = this.options.firstItem[key];
+                if (!header)
+                    header = '';
+                values.push(['', header]);
+            }
             return values;
         },
 
